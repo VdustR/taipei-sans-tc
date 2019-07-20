@@ -1,0 +1,63 @@
+{
+  "name": "taipei-sans-tc",
+  "version": "0.1.0",
+  "description": "台北黑體 Taipei Sans TC",
+  "keywords": [
+    "font",
+    "sans",
+    "taipei",
+    "noto",
+    "web",
+    "split",
+    "subset"
+  ],
+  "author": {
+    "name": "ViPro",
+    "email": "VdustR@gmail.com",
+    "url": "https://VdustR.github.io"
+  },
+  "license": "MIT",
+  "homepage": "https://sites.google.com/view/jtfoundry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VdustR/taipei-sans-tc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VdustR/taipei-sans-tc/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/Regular/TaipeiSansTCBeta-Regular.css",
+  "scripts": {
+    "commit": "git-cz",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commitizen": "^3.1.2",
+    "conventional-changelog-cli": "^2.0.21",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.2.0",
+    "prettier": "^1.18.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,html,htm,vue,css,less,scss,md,mdx,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

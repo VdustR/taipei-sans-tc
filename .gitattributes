@@ -1,0 +1,2 @@
+* text=auto eol=lf
+src/** filter=lfs diff=lfs merge=lfs -text
