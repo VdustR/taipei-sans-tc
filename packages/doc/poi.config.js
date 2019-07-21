@@ -25,5 +25,12 @@ module.exports = {
     const mdx = config.module.rule('mdx').test(/\.mdx$/);
     mdx.use('babel').loader('babel-loader');
     mdx.use('mdx').loader('@mdx-js/loader');
+    // path might be too long
+    config.module
+      .rule('font')
+      .use('file-loader')
+      .options({
+        name: 'assets/fonts/[name].[hash:8].[ext]',
+      });
   },
 };
