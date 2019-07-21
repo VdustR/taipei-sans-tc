@@ -27,6 +27,7 @@
   },
   "scripts": {
     "doc:build": "cd packages/doc && yarn build",
+    "pub": "lerna publish --conventional-commits",
     "postinstall": "lerna bootstrap",
     "commit": "git-cz"
   },
