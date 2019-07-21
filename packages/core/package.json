@@ -1,0 +1,32 @@
+{
+  "name": "taipei-sans-tc",
+  "version": "0.1.0",
+  "description": "台北黑體 Taipei Sans TC",
+  "keywords": [
+    "font",
+    "sans",
+    "taipei",
+    "noto",
+    "web",
+    "split",
+    "subset"
+  ],
+  "author": {
+    "name": "ViPro",
+    "email": "VdustR@gmail.com",
+    "url": "https://VdustR.github.io"
+  },
+  "license": "MIT",
+  "homepage": "https://vdustr.github.io/taipei-sans-tc/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VdustR/taipei-sans-tc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VdustR/taipei-sans-tc/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/Regular/TaipeiSansTCBeta-Regular.css"
+}

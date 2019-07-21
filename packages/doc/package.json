@@ -1,0 +1,35 @@
+{
+  "name": "doc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "poi --prod",
+    "dev": "poi --serve"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@mdx-js/loader": "^1.1.0",
+    "@poi/plugin-eslint": "^12.0.0",
+    "@poi/plugin-pwa": "^12.0.3",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "disable-react-devtools": "^1.0.0",
+    "poi": "^12.7.0",
+    "react-scripts": "^3.0.1",
+    "register-service-worker": "^1.6.2",
+    "typescript": "^3.5.3",
+    "typescript-styled-plugin": "^0.14.0"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^3.17.1",
+    "@hot-loader/react-dom": "^16.8.6",
+    "@mdx-js/tag": "^0.20.3",
+    "autosize": "^4.0.2",
+    "emotion": "^10.0.14",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.16.0",
+    "react": "^16.8.6",
+    "react-hot-loader": "^4.12.8",
+    "typed.js": "^2.0.10"
+  }
+}
