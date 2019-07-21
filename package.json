@@ -26,6 +26,7 @@
     "url": "https://github.com/VdustR/taipei-sans-tc/issues"
   },
   "scripts": {
+    "doc:build": "cd packages/doc && yarn build",
     "postinstall": "lerna bootstrap",
     "commit": "git-cz"
   },
