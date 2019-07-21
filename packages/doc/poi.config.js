@@ -9,6 +9,9 @@ module.exports = {
     isProduction && 'src/registerServiceWorker',
     'src/index',
   ].filter(existFilter),
+  output: {
+    publicUrl: process.env.PUBLIC_URL || '/',
+  },
   plugins: [
     {
       resolve: '@poi/plugin-eslint',
