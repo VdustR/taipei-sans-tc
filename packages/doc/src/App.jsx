@@ -106,7 +106,6 @@ const App = (() => {
                   `
               )}
             >
-              <TopBar />
               <div className={styles.body}>
                 <header className={styles.header}>
                   {'台北黑體'}
@@ -118,6 +117,7 @@ const App = (() => {
                   <Content />
                 </div>
               </div>
+              <TopBar />
             </div>
           </WeightContext.Provider>
         </DarkContext.Provider>
