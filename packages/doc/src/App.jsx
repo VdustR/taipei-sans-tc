@@ -17,8 +17,8 @@ const styles = {
     --transition: all 0.3s;
     --topBarHeight: 64px;
     --maxBodyWidth: 800px;
-    --default-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    --defaultFontFamily: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
     font-family: Taipei Sans TC, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -78,7 +78,8 @@ const App = (() => {
     const fontWeightStyle = useMemo(
       () => css`
         label: fontWeight;
-        font-weight: ${weightMap[weight]};
+        --fontWeight: ${weightMap[weight]};
+        font-weight: var(--fontWeight);
       `,
       [weight]
     );

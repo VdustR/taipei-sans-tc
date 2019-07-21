@@ -6,7 +6,7 @@ import Context from './Context';
 const styles = {
   switch: css`
     label: switch;
-    font-family: var(--default-font-family);
+    font-family: var(--defaultFontFamily);
     margin-bottom: 0;
     margin-left: 16px;
   `,
