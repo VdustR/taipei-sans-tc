@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { css, cx } from 'emotion';
 import { Colors } from '@blueprintjs/core';
@@ -60,10 +60,19 @@ const weightMap = {
   bold: 700,
 };
 
+const darkLocalStorageKey = 'dark';
+
 const App = (() => {
   const App = () => {
-    const [dark, setDark] = useState(false);
+    const [dark, setDark] = useState(localStorage.getItem(darkLocalStorageKey));
     const darkValue = useMemo(() => ({ dark, setDark }), [dark]);
+    useEffect(() => {
+      if (dark) {
+        localStorage.setItem(darkLocalStorageKey, 'true');
+      } else {
+        localStorage.removeItem(darkLocalStorageKey);
+      }
+    }, [dark]);
     const [weight, setWeight] = useState('regular');
     const weightValue = useMemo(() => ({ weight, setWeight }), [weight]);
     const fontWeightStyle = useMemo(
