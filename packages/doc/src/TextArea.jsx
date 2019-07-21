@@ -13,6 +13,10 @@ const styles = {
     font-weight: var(--fontWeight);
     margin-top: 8px;
   `,
+  slider: css`
+    label: slider;
+    padding: 0 32px;
+  `,
 };
 
 const T = () => {
@@ -36,14 +40,16 @@ const T = () => {
   }, [size]);
   return (
     <div>
-      <Slider
-        value={size}
-        onChange={v => setSize(v)}
-        min={8}
-        max={128}
-        labelStepSize={12}
-        labelRenderer={v => `${v}px`}
-      />
+      <div className={styles.slider}>
+        <Slider
+          value={size}
+          onChange={v => setSize(v)}
+          min={8}
+          max={128}
+          labelStepSize={30}
+          labelRenderer={v => `${v}px`}
+        />
+      </div>
       <TextArea
         className={cx(styles.textArea, style)}
         value={val}
