@@ -41,9 +41,9 @@ const TopBar = () => {
   const style = useMemo(
     () => css`
       transform: ${isShown ? 'none' : 'translateY(-100%)'};
-      background-color: ${dark
-        ? 'rgba(255, 255, 255, 0.2)'
-        : 'rgba(0, 0, 0, 0.2)'};
+      background: ${dark
+        ? 'linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%)'
+        : 'linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%)'};
     `,
     [dark, isShown]
   );
@@ -63,7 +63,7 @@ const TopBar = () => {
   }, [hide, prevScroll, scroll, show]);
   return (
     <div className={cx(styles.topBar, style)}>
-      <div className={styles.nav}></div>
+      <div className={styles.nav} />
       <WeightSwitcher />
       <DarkToggle />
     </div>
