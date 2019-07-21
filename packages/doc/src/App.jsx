@@ -27,6 +27,10 @@ const styles = {
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     transition: var(--transition);
+    & :focus,
+    & :focus ~ .bp3-control-indicator {
+      outline: none !important;
+    }
   `,
   body: css`
     label: body;
