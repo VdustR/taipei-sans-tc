@@ -9,6 +9,7 @@ const styles = {
     resize: none;
     width: 100%;
     min-height: 5em;
+    max-height: 20em;
   `,
 };
 
