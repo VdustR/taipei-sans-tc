@@ -17,6 +17,9 @@ action "Build" {
   uses = "nuxt/actions-yarn@master"
   args = "doc:build"
   needs = ["Install"]
+  env = {
+    PUBLIC_URL = "/taipei-sans-tc/"
+  }
 }
 
 action "Deploy to GitHub Pages" {
