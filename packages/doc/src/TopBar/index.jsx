@@ -55,10 +55,14 @@ const styles = {
   nav: css`
     label: nav;
     flex: 1;
-    font-size: 2em;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 1em;
+
+    @media (min-width: 600px) {
+      font-size: 2em;
+    }
   `,
   toTop: css`
     label: toTop;
