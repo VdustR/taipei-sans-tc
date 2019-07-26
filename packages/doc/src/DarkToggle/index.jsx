@@ -18,7 +18,7 @@ const DarkToggle = () => {
     <Switch
       className={styles.switch}
       checked={dark}
-      onChange={e => setDark(e.target.checked)}
+      onChange={e => setDark(Boolean(e.target.checked))}
       innerLabelChecked="🌙"
       innerLabel="☀️"
       large

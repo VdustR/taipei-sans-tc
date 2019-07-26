@@ -2,8 +2,7 @@ import React, { memo, useEffect, useMemo, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { css, cx } from 'emotion';
 import { Colors } from '@blueprintjs/core';
-import { MDXProvider } from '@mdx-js/react';
-import CodeBlock from './CodeBlock';
+import MDXProvider from './MDXProvider';
 import DarkContext from './DarkToggle/Context';
 import TopBar from './TopBar';
 import Typed from './Typed';
@@ -25,10 +24,17 @@ const styles = {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    background: var(--background);
     transition: var(--transition);
     & :focus,
     & :focus ~ .bp3-control-indicator {
       outline: none !important;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: calc(100vh - 36px - 1em);
     }
   `,
   body: css`
@@ -61,7 +67,9 @@ const darkLocalStorageKey = 'dark';
 
 const App = (() => {
   const App = () => {
-    const [dark, setDark] = useState(localStorage.getItem(darkLocalStorageKey));
+    const [dark, setDark] = useState(
+      localStorage.getItem(darkLocalStorageKey) === 'true'
+    );
     const darkValue = useMemo(() => ({ dark, setDark }), [dark]);
     useEffect(() => {
       if (dark) {
@@ -70,23 +78,17 @@ const App = (() => {
         localStorage.removeItem(darkLocalStorageKey);
       }
     }, [dark]);
+    const appStyle = useMemo(
+      () =>
+        css`
+          --background: ${dark ? Colors.DARK_GRAY3 : Colors.WHITE};
+        `,
+      [dark]
+    );
     return (
-      <MDXProvider
-        components={{
-          code: CodeBlock,
-        }}
-      >
+      <MDXProvider>
         <DarkContext.Provider value={darkValue}>
-          <div
-            className={cx(
-              styles.app,
-              dark && 'bp3-dark',
-              dark &&
-                css`
-                  background: ${Colors.DARK_GRAY3};
-                `
-            )}
-          >
+          <div className={cx(styles.app, appStyle, dark && 'bp3-dark')}>
             <div className={styles.body}>
               <header className={styles.header}>
                 {'台北黑體'}
