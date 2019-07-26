@@ -5,7 +5,6 @@ import { Colors } from '@blueprintjs/core';
 import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from './CodeBlock';
 import DarkContext from './DarkToggle/Context';
-import WeightContext from './WeightSwitcher/Context';
 import TopBar from './TopBar';
 import Typed from './Typed';
 import TextArea from './TextArea';
@@ -58,12 +57,6 @@ const styles = {
   `,
 };
 
-const weightMap = {
-  light: 300,
-  regular: 400,
-  bold: 700,
-};
-
 const darkLocalStorageKey = 'dark';
 
 const App = (() => {
@@ -77,16 +70,6 @@ const App = (() => {
         localStorage.removeItem(darkLocalStorageKey);
       }
     }, [dark]);
-    const [weight, setWeight] = useState('regular');
-    const weightValue = useMemo(() => ({ weight, setWeight }), [weight]);
-    const fontWeightStyle = useMemo(
-      () => css`
-        label: fontWeight;
-        --fontWeight: ${weightMap[weight]};
-        font-weight: var(--fontWeight);
-      `,
-      [weight]
-    );
     return (
       <MDXProvider
         components={{
@@ -94,32 +77,29 @@ const App = (() => {
         }}
       >
         <DarkContext.Provider value={darkValue}>
-          <WeightContext.Provider value={weightValue}>
-            <div
-              className={cx(
-                styles.app,
-                fontWeightStyle,
-                dark && 'bp3-dark',
-                dark &&
-                  css`
-                    background: ${Colors.DARK_GRAY3};
-                  `
-              )}
-            >
-              <div className={styles.body}>
-                <header className={styles.header}>
-                  {'台北黑體'}
-                  <div className={styles.subHeader}>{'Taipei Sans TC'}</div>
-                </header>
-                <div className={styles.content}>
-                  <Typed />
-                  <TextArea />
-                  <Content />
-                </div>
+          <div
+            className={cx(
+              styles.app,
+              dark && 'bp3-dark',
+              dark &&
+                css`
+                  background: ${Colors.DARK_GRAY3};
+                `
+            )}
+          >
+            <div className={styles.body}>
+              <header className={styles.header}>
+                {'台北黑體'}
+                <div className={styles.subHeader}>{'Taipei Sans TC'}</div>
+              </header>
+              <div className={styles.content}>
+                <Typed />
+                <TextArea />
+                <Content />
               </div>
-              <TopBar />
             </div>
-          </WeightContext.Provider>
+            <TopBar />
+          </div>
         </DarkContext.Provider>
       </MDXProvider>
     );

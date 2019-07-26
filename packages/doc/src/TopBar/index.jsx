@@ -2,7 +2,6 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { css, cx } from 'emotion';
 import DarkToggle from '@/DarkToggle';
 import useDark from '@/DarkToggle/useDark';
-import WeightSwitcher from '@/WeightSwitcher';
 import usePrevious from '@/hooks/usePrevious';
 
 const styles = {
@@ -64,7 +63,6 @@ const TopBar = () => {
   return (
     <div className={cx(styles.topBar, style)}>
       <div className={styles.nav} />
-      <WeightSwitcher />
       <DarkToggle />
     </div>
   );
