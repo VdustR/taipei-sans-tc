@@ -34,12 +34,12 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "commitizen": "^3.1.2",
-    "conventional-changelog-cli": "^2.0.21",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^3.0.0",
-    "lerna": "^3.16.1",
-    "lint-staged": "^9.2.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.23",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.2",
+    "lerna": "^3.16.4",
+    "lint-staged": "^9.2.1",
     "prettier": "^1.18.2"
   },
   "private": true,
