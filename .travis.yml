@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 'node'
+cache: yarn
+script:
+  - cd packages/doc
+  - yarn
+  - REPO_NAME=$(echo $TRAVIS_REPO_SLUG | cut -d/ -f2)
+  - PUBLIC_URL=/$(echo $REPO_NAME)/ yarn build
+branches:
+  only:
+    - master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: packages/doc/dist
+  target-branch: gh-pages
+  on:
+    branch: master
