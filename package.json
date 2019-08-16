@@ -1,30 +1,4 @@
 {
-  "name": "taipei-sans-tc",
-  "version": "0.1.0",
-  "description": "台北黑體 Taipei Sans TC",
-  "keywords": [
-    "font",
-    "sans",
-    "taipei",
-    "noto",
-    "web",
-    "split",
-    "subset"
-  ],
-  "author": {
-    "name": "ViPro",
-    "email": "VdustR@gmail.com",
-    "url": "https://VdustR.github.io"
-  },
-  "license": "MIT",
-  "homepage": "https://vdustr.github.io/taipei-sans-tc/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VdustR/taipei-sans-tc.git"
-  },
-  "bugs": {
-    "url": "https://github.com/VdustR/taipei-sans-tc/issues"
-  },
   "scripts": {
     "doc:build": "cd packages/doc && yarn build",
     "pub": "lerna publish --conventional-commits",
@@ -37,7 +11,7 @@
     "commitizen": "^4.0.3",
     "conventional-changelog-cli": "^2.0.23",
     "cz-conventional-changelog": "^3.0.2",
-    "husky": "^3.0.2",
+    "husky": "^3.0.3",
     "lerna": "^3.16.4",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2"

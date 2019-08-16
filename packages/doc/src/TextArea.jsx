@@ -92,7 +92,9 @@ const T = () => {
         className={cx(styles.textArea, style)}
         value={val}
         onChange={e => setVal(e.target.value)}
-        inputRef={ref}
+        inputRef={r => {
+          ref.current = r;
+        }}
       />
     </div>
   );

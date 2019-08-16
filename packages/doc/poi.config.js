@@ -5,8 +5,8 @@ const existFilter = a => a;
 module.exports = {
   entry: [
     '../../node_modules/@babel/polyfill',
-    isProduction && '../../node_modules/disable-react-devtools',
-    isProduction && 'src/registerServiceWorker',
+    isProduction && 'entries/disableReactDevtools',
+    isProduction && 'entries/registerServiceWorker',
     'src/index',
   ].filter(existFilter),
   output: {
