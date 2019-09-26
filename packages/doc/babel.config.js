@@ -1,4 +1,13 @@
 module.exports = {
-  presets: ['react-app'],
+  presets: [
+    'react-app',
+    [
+      '@emotion/babel-preset-css-prop',
+      {
+        autoLabel: true,
+        labelFormat: '[local]',
+      },
+    ],
+  ],
   plugins: ['react-hot-loader/babel'],
 };

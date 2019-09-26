@@ -1,5 +1,5 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { css, cx, keyframes } from 'emotion';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { css, keyframes } from '@emotion/core';
 import { animateScroll, Events, Link } from 'react-scroll';
 import { Icon } from '@blueprintjs/core';
 import DarkToggle from '@/DarkToggle';
@@ -39,7 +39,6 @@ const showToTop = keyframes`
 
 const styles = {
   topBar: css`
-    label: topBar;
     position: fixed;
     height: var(--topBarHeight);
     top: 0;
@@ -53,7 +52,6 @@ const styles = {
     background: var(--background);
   `,
   nav: css`
-    label: nav;
     flex: 1;
     display: flex;
     justify-content: space-evenly;
@@ -65,7 +63,6 @@ const styles = {
     }
   `,
   toTop: css`
-    label: toTop;
     margin-left: 16px;
     transition: var(--transition);
   `,
@@ -152,15 +149,12 @@ const TopBar = () => {
     [isToTopHidden]
   );
   return (
-    <div className={cx(styles.topBar, topBarStyle)}>
+    <div css={[styles.topBar, topBarStyle]}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a
-        onClick={animateScroll.scrollToTop}
-        className={cx(styles.toTop, toTopStyle)}
-      >
+      <a onClick={animateScroll.scrollToTop} css={[styles.toTop, toTopStyle]}>
         <Icon icon="double-chevron-up" iconSize={36} />
       </a>
-      <div className={styles.nav}>
+      <div css={styles.nav}>
         <L>安裝</L>
         <L>使用</L>
         <L>相關連結</L>

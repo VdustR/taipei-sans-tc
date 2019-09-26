@@ -1,10 +1,9 @@
-import React, { memo } from 'react';
-import { css } from 'emotion';
+import { memo } from 'react';
+import { css } from '@emotion/core';
 import Article from './Article.mdx';
 
 const styles = {
   usage: css`
-    label: usage;
     text-align: left;
     width: 100%;
     overflow: auto;
@@ -12,7 +11,7 @@ const styles = {
 };
 
 const Content = props => (
-  <div className={styles.usage}>
+  <div css={styles.usage}>
     <Article />
   </div>
 );

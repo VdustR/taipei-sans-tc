@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from './CodeBlock';
 import { Link } from 'react-scroll';

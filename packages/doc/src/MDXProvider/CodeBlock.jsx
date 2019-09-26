@@ -1,12 +1,11 @@
-import React, { memo, useCallback, useMemo, useState, useEffect } from 'react';
+import { memo, useCallback, useMemo, useState, useEffect } from 'react';
 import Prism from 'prismjs';
 import components from 'prismjs/components';
-import { css, cx } from 'emotion';
+import { css } from '@emotion/core';
 
 const styles = {
   code: css`
     && {
-      label: code;
       font-family: 'Victor Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
         monospace;
       font-weight: normal;
@@ -76,7 +75,8 @@ const CodeBlock = ({ children, className }) => {
   const createMarkup = useCallback(() => ({ __html: html }), [html]);
   return (
     <code
-      className={cx(styles.code, `language-${language}`)}
+      css={styles.code}
+      className={`language-${language}`}
       dangerouslySetInnerHTML={createMarkup()}
     />
   );

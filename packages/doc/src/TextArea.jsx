@@ -1,11 +1,10 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
-import { css, cx } from 'emotion';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { css } from '@emotion/core';
 import { TextArea, Slider } from '@blueprintjs/core';
 import autosize from 'autosize';
 
 const styles = {
   textArea: css`
-    label: textArea;
     resize: none;
     width: 100%;
     min-height: 72px;
@@ -14,7 +13,6 @@ const styles = {
     margin-top: 8px;
   `,
   sliders: css`
-    label: slider;
     padding: 0 32px;
     display: grid;
     grid-template-areas:
@@ -27,18 +25,16 @@ const styles = {
     }
   `,
   weight: css`
-    label: weight;
     grid-area: weight;
   `,
   size: css`
-    label: size;
     grid-area: size;
   `,
 };
 
 const labelRenderer = v => (
   <span
-    className={css`
+    css={css`
       font-weight: ${v};
     `}
   >
@@ -69,7 +65,7 @@ const T = () => {
   }, [size]);
   return (
     <div>
-      <div className={styles.sliders}>
+      <div css={styles.sliders}>
         <Slider
           value={weight}
           onChange={v => setWeight(v < 1 ? 1 : v)}
@@ -89,7 +85,7 @@ const T = () => {
         />
       </div>
       <TextArea
-        className={cx(styles.textArea, style)}
+        css={[styles.textArea, style]}
         value={val}
         onChange={e => setVal(e.target.value)}
         inputRef={r => {

@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { css, cx } from 'emotion';
+import { ClassNames, css } from '@emotion/core';
 import { Colors } from '@blueprintjs/core';
 import MDXProvider from './MDXProvider';
 import DarkContext from './DarkToggle/Context';
@@ -11,7 +11,6 @@ import Content from './Content';
 
 const styles = {
   app: css`
-    label: app;
     --transition: all 0.3s;
     --topBarHeight: 64px;
     --maxBodyWidth: 800px;
@@ -38,18 +37,15 @@ const styles = {
     }
   `,
   body: css`
-    label: body;
     padding-top: var(--topBarHeight);
   `,
   header: css`
-    label: header;
     font-size: 20vw;
     text-align: center;
     padding-top: 10vh;
     padding-bottom: 30px;
   `,
   content: css`
-    label: content;
     max-width: var(--maxBodyWidth);
     display: grid;
     grid-gap: 64px;
@@ -58,7 +54,6 @@ const styles = {
     padding: 16px;
   `,
   subHeader: css`
-    label: subHeader;
     font-size: 64px;
   `,
 };
@@ -86,24 +81,31 @@ const App = (() => {
       [dark]
     );
     return (
-      <MDXProvider>
-        <DarkContext.Provider value={darkValue}>
-          <div className={cx(styles.app, appStyle, dark && 'bp3-dark')}>
-            <div className={styles.body}>
-              <header className={styles.header}>
-                {'台北黑體'}
-                <div className={styles.subHeader}>{'Taipei Sans TC'}</div>
-              </header>
-              <div className={styles.content}>
-                <Typed />
-                <TextArea />
-                <Content />
+      <ClassNames>
+        {({ cx }) => (
+          <MDXProvider>
+            <DarkContext.Provider value={darkValue}>
+              <div
+                css={[styles.app, appStyle]}
+                className={cx(dark && 'bp3-dark')}
+              >
+                <div css={styles.body}>
+                  <header css={styles.header}>
+                    {'台北黑體'}
+                    <div css={styles.subHeader}>{'Taipei Sans TC'}</div>
+                  </header>
+                  <div css={styles.content}>
+                    <Typed />
+                    <TextArea />
+                    <Content />
+                  </div>
+                </div>
+                <TopBar />
               </div>
-            </div>
-            <TopBar />
-          </div>
-        </DarkContext.Provider>
-      </MDXProvider>
+            </DarkContext.Provider>
+          </MDXProvider>
+        )}
+      </ClassNames>
     );
   };
   return memo(App);

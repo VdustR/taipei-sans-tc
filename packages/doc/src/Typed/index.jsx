@@ -1,12 +1,11 @@
-import React, { memo, useRef, useEffect } from 'react';
-import { css } from 'emotion';
+import { memo, useRef, useEffect } from 'react';
+import { css } from '@emotion/core';
 import Typed from 'typed.js';
 
 const strings = ['文字編排', '平面設計', '影音字幕'];
 
 const styles = {
   typed: css`
-    label: typed;
     font-size: 2em;
     display: flex;
     justify-content: center;
@@ -25,7 +24,7 @@ const T = () => {
     return typed.destroy;
   }, []);
   return (
-    <div className={styles.typed}>
+    <div css={styles.typed}>
       <div ref={ref}></div>
     </div>
   );
