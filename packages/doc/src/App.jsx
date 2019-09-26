@@ -4,6 +4,7 @@ import { ClassNames, css } from '@emotion/core';
 import { Colors } from '@blueprintjs/core';
 import MDXProvider from './MDXProvider';
 import DarkContext from './DarkToggle/Context';
+import { isDarkMode, saveDark, saveLight } from './DarkToggle/storage';
 import TopBar from './TopBar';
 import Typed from './Typed';
 import TextArea from './TextArea';
@@ -58,19 +59,15 @@ const styles = {
   `,
 };
 
-const darkLocalStorageKey = 'dark';
-
 const App = (() => {
   const App = () => {
-    const [dark, setDark] = useState(
-      localStorage.getItem(darkLocalStorageKey) === 'true'
-    );
+    const [dark, setDark] = useState(isDarkMode);
     const darkValue = useMemo(() => ({ dark, setDark }), [dark]);
     useEffect(() => {
       if (dark) {
-        localStorage.setItem(darkLocalStorageKey, 'true');
+        saveDark();
       } else {
-        localStorage.removeItem(darkLocalStorageKey);
+        saveLight();
       }
     }, [dark]);
     const appStyle = useMemo(
